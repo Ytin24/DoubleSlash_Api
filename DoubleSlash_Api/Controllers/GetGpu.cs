@@ -6,16 +6,15 @@ namespace DoubleSlash_Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetCpu : ControllerBase
+    public class GetGpu : ControllerBase
     {
-        [HttpGet()]
+        [HttpGet]
         public async Task<string> GetAll()
         {
-            using (DoubleSlashDB dB = new DoubleSlashDB())
+            using (DoubleSlashDB db = new DoubleSlashDB())
             {
-                var abc = dB.chipset.ToList();
-                var cpus = dB.cpu.ToList();
-                return JsonConvert.SerializeObject(cpus);
+                var gpus = db.gpu.ToList();
+                return JsonConvert.SerializeObject(gpus);
             }
         }
     }
