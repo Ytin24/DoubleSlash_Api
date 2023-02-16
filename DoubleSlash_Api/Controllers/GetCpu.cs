@@ -8,12 +8,11 @@ namespace DoubleSlash_Api.Controllers
     [ApiController]
     public class GetCpu : ControllerBase
     {
-        [HttpGet()]
+        [HttpGet]
         public async Task<string> GetAll()
         {
             using (DoubleSlashDB dB = new DoubleSlashDB())
             {
-                var abc = dB.chipset.ToList();
                 var cpus = dB.cpu.ToList();
                 return JsonConvert.SerializeObject(cpus);
             }
