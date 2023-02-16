@@ -17,7 +17,7 @@ namespace DoubleSlash_Api.Controllers
                 return JsonConvert.SerializeObject(gpuT);
             }
         }
-        [HttpGet]
+        [HttpGet("{Power}")]
         public async Task<string> GetAllByPower(int Power) {
             using (var db = new DoubleSlashDB()) {
                 var gpuT = db.gpu.ToList().FindAll(

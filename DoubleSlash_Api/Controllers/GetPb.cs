@@ -17,7 +17,7 @@ namespace DoubleSlash_Api.Controllers
         [HttpGet("{Watt}")]
         public async Task<string> GetAllByTdp(int Watt) {
             using (var db = new DoubleSlashDB()) {
-                var pbT = db.pb.ToList().FindAll(x => (x.watt + 300) >= Watt);
+                var pbT = db.pb.ToList().FindAll(x => x.watt >= Watt + 300);
                 return JsonConvert.SerializeObject(pbT);
             }
         }

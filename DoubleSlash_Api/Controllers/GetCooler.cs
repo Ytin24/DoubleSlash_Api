@@ -14,7 +14,7 @@ namespace DoubleSlash_Api.Controllers
                 return JsonConvert.SerializeObject(coolerT);
             }
         }
-        [HttpGet("{Tpd}")]
+        [HttpGet("{Tdp}")]
         public async Task<string> GetAllByTdp(int Tdp) {
             using (var db = new DoubleSlashDB()) {
                 var coolerT = db.cooler.ToList().FindAll(x => x.tdp >= Tdp);
