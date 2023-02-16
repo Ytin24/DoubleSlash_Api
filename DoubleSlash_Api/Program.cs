@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace DoubleSlash_Api {
     public class Program {
         public static void Main(string[] args) {
