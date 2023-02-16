@@ -6,15 +6,15 @@ namespace DoubleSlash_Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetCpu : ControllerBase
+    public class GetCooler : ControllerBase
     {
         [HttpGet]
         public async Task<string> GetAll()
         {
             using (var db = new DoubleSlashDB())
             {
-                var cpuT = db.cpu.ToList();
-                return JsonConvert.SerializeObject(cpuT);
+                var coolerT = db.cooler.ToList();
+                return JsonConvert.SerializeObject(coolerT);
             }
         }
     }

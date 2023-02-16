@@ -11,10 +11,10 @@ namespace DoubleSlash_Api.Controllers
         [HttpGet]
         public async Task<string> GetAll()
         {
-            using (DoubleSlashDB db = new DoubleSlashDB())
+            using (var db = new DoubleSlashDB())
             {
-                var gpus = db.gpu.ToList();
-                return JsonConvert.SerializeObject(gpus);
+                var gpuT = db.gpu.ToList();
+                return JsonConvert.SerializeObject(gpuT);
             }
         }
     }
