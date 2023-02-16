@@ -6,14 +6,18 @@ namespace DoubleSlash_Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetPb : ControllerBase
-    {
+    public class GetPb : ControllerBase {
         [HttpGet]
-        public async Task<string> GetAll()
-        {
-            using (var db = new DoubleSlashDB())
-            {
+        public async Task<string> GetAll() {
+            using (var db = new DoubleSlashDB()) {
                 var pbT = db.pb.ToList();
+                return JsonConvert.SerializeObject(pbT);
+            }
+        }
+        [HttpGet("{Watt}")]
+        public async Task<string> GetAllByTdp(int Watt) {
+            using (var db = new DoubleSlashDB()) {
+                var pbT = db.pb.ToList().FindAll(x => (x.watt + 300) >= Watt);
                 return JsonConvert.SerializeObject(pbT);
             }
         }

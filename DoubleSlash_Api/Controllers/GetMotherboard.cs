@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using NpgsqlTypes;
 
 namespace DoubleSlash_Api.Controllers
 {
@@ -14,19 +15,18 @@ namespace DoubleSlash_Api.Controllers
         {
             using (var db = new DoubleSlashDB())
             {
+                var chipsetT = db.chipset.ToList();
                 var motherboardT = db.motherboard.ToList();
                 return JsonConvert.SerializeObject(motherboardT);
             }
         }
-
-        // Попытка стоящая
-        [Route("ByChipsetId")]
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<string> GetAllByChipsetId(int id)
         {
             using (var db = new DoubleSlashDB())
             {
-                var motherboardT = db.motherboard.FromSqlRaw($"SELECT * FROM motherboard WHERE motherboard_id = {id}");
+                var chipsetT = db.chipset.ToList();
+                var motherboardT = db.motherboard.ToList().FindAll(x=>x.motherboard_id == id);
                 return JsonConvert.SerializeObject(motherboardT);
             }
         }

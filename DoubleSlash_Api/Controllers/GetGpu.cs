@@ -17,5 +17,14 @@ namespace DoubleSlash_Api.Controllers
                 return JsonConvert.SerializeObject(gpuT);
             }
         }
+        [HttpGet]
+        public async Task<string> GetAllByPower(int Power) {
+            using (var db = new DoubleSlashDB()) {
+                var gpuT = db.gpu.ToList().FindAll(
+                    x => x.power >= Power - 20 
+                    && x.power <= Power + 20);
+                return JsonConvert.SerializeObject(gpuT);
+            }
+        }
     }
 }

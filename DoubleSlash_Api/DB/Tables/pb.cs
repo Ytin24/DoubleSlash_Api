@@ -6,7 +6,7 @@ namespace DoubleSlash_Api.DB.Tables
     {
         [Key]
         public int pb_id { get; set; }
-        public int wat { get; set; }
+        public int watt { get; set; }
         public string name { get; set; }
     }
 }

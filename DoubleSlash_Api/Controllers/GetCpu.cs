@@ -1,4 +1,5 @@
 ﻿using DoubleSlash_Api.DB;
+using DoubleSlash_Api.DB.Tables;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -14,6 +15,14 @@ namespace DoubleSlash_Api.Controllers
             using (var db = new DoubleSlashDB())
             {
                 var cpuT = db.cpu.ToList();
+                return JsonConvert.SerializeObject(cpuT);
+            }
+        }
+        [HttpGet("{id}")]
+        public async Task<string> GetAllByChipsetId(int id) {
+            using (var db = new DoubleSlashDB()) {
+                var chipsetT = db.chipset.ToList();
+                var cpuT = db.cpu.ToList().FindAll(x => x.cpu_id == id);
                 return JsonConvert.SerializeObject(cpuT);
             }
         }
