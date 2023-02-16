@@ -7,5 +7,6 @@ namespace DoubleSlash_Api.DB.Tables
         [Key]
         public int cooler_id { get; set; }
         public int tdp { get; set; }
+        public string cooler_name { get; set; }
     }
 }

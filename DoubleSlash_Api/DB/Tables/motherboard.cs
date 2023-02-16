@@ -11,5 +11,6 @@ namespace DoubleSlash_Api.DB.Tables
         [ForeignKey("chipset_id")]
         public Chipset chipset { get; set; }
         public string memory { get; set; }
+        public string motherboard_name { get; set; }
     }
 }
