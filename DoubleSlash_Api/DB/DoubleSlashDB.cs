@@ -16,7 +16,7 @@ namespace DoubleSlash_Api.DB {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseNpgsql("Host=pg.ytin24.xyz;Port=5432;Database=doubleslashdb;Username=dsuser;Password=qwertY");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=doubleslashdb;Username=dsuser;Password=qwertY");
         }
     }
 }

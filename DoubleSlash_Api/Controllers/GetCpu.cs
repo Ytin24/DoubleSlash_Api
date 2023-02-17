@@ -14,6 +14,7 @@ namespace DoubleSlash_Api.Controllers
         {
             using (var db = new DoubleSlashDB())
             {
+                var chipsetT = db.chipset.ToList();
                 var cpuT = db.cpu.ToList();
                 return JsonConvert.SerializeObject(cpuT);
             }
